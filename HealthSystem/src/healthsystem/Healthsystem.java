@@ -1,22 +1,28 @@
 package healthsystem;
+
 class Healthsystem {
-  public static void main(String[] args) { 
-    Jugador Jprincipal = new Jugador("ElPEPE", 15);
-    Zombie zombie = new Zombie("TILIN", 50, 20);
-    Botiquin botiking = new Botiquin (15, false);
+  public static void main(String[] args){
+  Jugador J1 = new Jugador("pipa",15,100);
+  Botiquin B1 = new Botiquin(900,false);
+  zombie Z1 = new zombie("messi",40,500);
 
-    System.out.println("Sistema de salud (Healthsystem)/n");
+  System.out.println("Sistema de Salud (Healthsystem)/n");
 
-    Jprincipal.recibirDanio(zombie.ataque());
+  System.out.println("Jugador "+J1.getnom()+" tiene "+J1.getvida()+" de vida total");
 
-    System.out.println(">>  TILIN ataca a ElPEPE. ElPEPE tiene "+Jprincipal.getVida()+" de vida");
-    
-    zombie.recibirDanio(Jprincipal.ataque());
+  J1.recibirDanio(Z1.ataque());
+  System.out.println("Zombie le pega un wate al Jugador (Jugador resulta con "+J1.getvida()+" de vida)");
 
-    Jprincipal.setVida(120);
-    System.out.println("Vida es: "+ Jprincipal.getVida());
+  Z1.recibirdanio(J1.ataque());
+  System.out.println("Jugador le pega un 200 al Zombie (Zombie resulta con "+Z1.getvida()+" de vida)");
 
-    System.out.println(">> TILIN es atacado por ElPEPE. TILIN tiene "+zombie.getVida()+" de vida");
+  J1.recibirDanio(Z1.ataque()+10);
+  System.out.println("Zombie ataca a jugador realizando un golpe crítica (jugador resulta con "+J1.getvida()+" de vida)");
 
-  } 
+  Z1.recibirdanio(J1.ataque());
+  System.out.println("Jugador ataca Zombie (Zombie resulta con "+Z1.getvida()+" de vida)");
+
+  J1.recibirVida(B1.curarVida());
+  System.out.println("Jugador saca un botiquín de su backpack y lo utiliza (resulta con "+J1.getvida()+" de vida)");
+  }
 }

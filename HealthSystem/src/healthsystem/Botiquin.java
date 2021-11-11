@@ -1,18 +1,18 @@
 package healthsystem;
-class Botiquin {
-  private int montoPuntoDeVida;
-  private boolean estaUsado;
+class Botiquin{ 
+//atributos
+private int montoPuntosDeVida;
+private boolean estaUsado;
 
-  public Botiquin (int montoVida, boolean Usado){
-    this.montoPuntoDeVida = montoVida;
-    this.estaUsado = Usado;
+//metodos
+  public Botiquin(int botVida, boolean botUsado){
+    this.montoPuntosDeVida = botVida;
+    this.estaUsado = botUsado;
   }
 
-  public int curarVida(int montoVida){
-    montoPuntoDeVida = montoVida;
-    return (montoVida);
-  }
-  public boolean getEstaUsado(){
-    return(this.estaUsado);
+  public boolean getEstaUsado(){return(this.estaUsado);}
+
+  public int curarVida(){
+    return(montoPuntosDeVida);
   }
 }

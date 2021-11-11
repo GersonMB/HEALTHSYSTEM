@@ -1,35 +1,30 @@
 package healthsystem;
-
-class Zombie {
+class zombie {
   //atributos
   private String nombre;
-  private int vida = 50;
+  private int vida;
   private int danioRasgunio;
+  //private int recibirdanio = 20;
 
-  //bob Constructor
-  public Zombie(String nom, int Lavidapa, int danioRasgunio){
-    this.nombre = nombre;
-    this.vida = Lavidapa;
-    this.danioRasgunio = danioRasgunio;
+  public zombie(String nom, int vidaZ, int danioZ){
+    this.nombre = nom;
+    this.vida = vidaZ;
+    this.danioRasgunio = danioZ;
   }
 
-  //Metodos
-  public int ataque(){
-    return(this.danioRasgunio);
-  }
-  public void recibirDanio(int danio){
-    this.vida=0;
+  public void recibirdanio(int danio){
     if(danio > vida){
-      System.out.println("La vida del zombie a llegado a 0");  
+      this.vida = 0;
+      System.out.println("La vida de zombie llego hasta 0, Game Over");
     }else{
-      vida = vida - danio;
+      this.vida = this.vida - danio;
     }
   }
-  public int getVida(){
-    return vida;
+
+  public int ataque(){
+    return(danioRasgunio);
   }
-  public void setVida(int vida){
-    this.vida = vida;
-  }
+
+  public int getvida(){return(this.vida);}
 }
   

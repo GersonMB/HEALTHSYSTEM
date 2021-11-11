@@ -1,35 +1,44 @@
 package healthsystem;
+
 class Jugador {
   //atributos
   private String nombre;
-  private int vida = 100;
+  private int vida;
   private int danioGolpe;
 
   //metodos
-  public Jugador(String nombre, int daGolpe){
-    this.nombre = nombre;
+  public Jugador(String nom, int daGolpe, int vidaJ){
+    this.nombre = nom;
     this.danioGolpe = daGolpe;
+    this.vida = vidaJ;
   }
+
   public int ataque(){
-    return(this.danioGolpe);
+    return(danioGolpe);
   }
+
   public void recibirDanio(int danio){
-    this.vida=0;
     if(danio > vida){
-      System.out.println("La vida del jugador a llegado a 0, GAME OVER");
+      this.vida = 0;
+      System.out.println("La vida del jugador llego hasta 0, Game Over");
     }else{
-    vida = vida - danio;
+      this.vida = this.vida - danio;
     }
   }
+
   public void recibirVida(int vidaExtra){
     vida = vida + vidaExtra;
+    int suma = this.vida + vidaExtra;
+    if(suma <= 100){
+      this.vida = suma;
+    }else{
+      this.vida = 100;
+    }
   }
-  public int getVida(){
-  return (vida);
-  }
-  public String getNombre(){
-    return (nombre);
-  }
+
+  public int getvida(){return(this.vida);}
+  public String getnom(){return(this.nombre);}
+  
   public void setVida(int vida){
     this.vida = vida;
   }
